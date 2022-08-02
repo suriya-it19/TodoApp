@@ -14,18 +14,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         todoAdapter = TodoAdapter(ArrayList())
 
-        rvTodo.adapter =todoAdapter
+        rvTodo.adapter = todoAdapter
         rvTodo.layoutManager = LinearLayoutManager(this)
 
-        btAddTodo.setOnClickListener() {
+        btAddTodo.setOnClickListener {
             val todoTitle = etTodo.text.toString()
-            if(todoTitle.isEmpty()) {
+            if(todoTitle.isNotEmpty()) {
                 val todo = Todo(todoTitle)
                 todoAdapter.addTodo(todo)
                 etTodo.text.clear()
             }
         }
-        btRemoveTodo.setOnClickListener() {
+        btRemoveTodo.setOnClickListener {
             todoAdapter.deleteDoneTodos()
         }
     }
