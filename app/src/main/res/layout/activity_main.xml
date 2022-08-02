@@ -8,13 +8,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTodo"
-        android:layout_width="411dp"
-        android:layout_height="356dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.014"
-        tools:layout_editor_absoluteX="dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/etTodo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etTodo"
@@ -22,25 +21,22 @@
         android:layout_height="wrap_content"
         android:hint="Enter a Task"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btAddTodo"
-        app:layout_constraintStart_toStartOf="" />
+        app:layout_constraintEnd_toStartOf="@+id/btAddTodo"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btAddTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etTodo" />
+        app:layout_constraintEnd_toStartOf="@+id/btRemoveTodo" />
 
     <Button
         android:id="@+id/btRemoveTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="208dp"
         android:text="Remove"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etTodo" />
-
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
