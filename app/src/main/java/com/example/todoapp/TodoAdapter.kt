@@ -1,5 +1,6 @@
 package com.example.todoapp
 
+import android.annotation.SuppressLint
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.View
@@ -34,10 +35,11 @@ class TodoAdapter(private val todos: ArrayList<Todo>): RecyclerView.Adapter<Todo
         notifyItemInserted(todos.size - 1)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun deleteDoneTodos() {
-        todos.removeAll(todo ->
+        todos.removeAll { todo ->
             todo.isChecked
-        )
+        }
         notifyDataSetChanged()
     }
 
@@ -58,8 +60,8 @@ class TodoAdapter(private val todos: ArrayList<Todo>): RecyclerView.Adapter<Todo
             tvTodoTitle.text = currTodo.title
             cbDone.isChecked = currTodo.isChecked
             toggleStrikeThrough(tvTodoTitle, currTodo.isChecked)
-            cbDone.setOnCheckedChangeListner { _, isCheked ->
-                toggleStrikeThrough(tvTodoTitle, isCheked)
+            cbDone.setOnCheckedChangeListener { _, isChecked ->
+                toggleStrikeThrough(tvTodoTitle, isChecked)
                 currTodo.isChecked = !currTodo.isChecked
             }
         }
